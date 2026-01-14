@@ -210,48 +210,12 @@
 //     </AnimatePresence>
 //   );
 // }
-
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 
 export default function ContactModal({ open, onClose }) {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) return;
-
-    setLoading(true);
-
-    try {
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/enquiry`,
-        formData
-      );
-
-      alert("Enquiry submitted successfully ✅");
-
-      setFormData({
-        title: "",
-        companyName: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        country: "",
-        message: "",
-      });
-
-      onClose();
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong ❌");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const [formData, setFormData] = useState({
     title: "",
     companyName: "",
@@ -320,7 +284,40 @@ export default function ContactModal({ open, onClose }) {
     return true;
   };
 
-  
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // 🔒 browser submit block
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/enquiry`,
+        formData
+      );
+
+      alert("Enquiry submitted successfully ✅");
+
+      setFormData({
+        title: "",
+        companyName: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        country: "",
+        message: "",
+      });
+
+      onClose();
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong ❌");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -337,8 +334,8 @@ export default function ContactModal({ open, onClose }) {
             exit={{ y: 60, opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative z-[10000] mx-auto my-10 w-full max-w-7xl bg-gradient-to-br from-[#0b0f14] via-[#0e131a] to-black rounded-3xl shadow-2xl border border-white/10"
-
           >
+            {/* CLOSE */}
             <button
               onClick={onClose}
               className="absolute top-6 right-6 text-white/60 hover:text-white text-2xl"
@@ -346,6 +343,7 @@ export default function ContactModal({ open, onClose }) {
               ✕
             </button>
 
+            {/* HEADER */}
             <div className="px-12 pt-12 pb-8 border-b border-white/10">
               <h2 className="text-4xl font-bold text-white">
                 We’re here to help
@@ -357,17 +355,24 @@ export default function ContactModal({ open, onClose }) {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2">
+              {/* LEFT INFO */}
               <div className="p-12 space-y-10 border-r border-white/10 bg-white/5">
-                {/* LEFT INFO SAME */}
+                <div className="flex items-center gap-3 text-sm text-gray-300">
+                  <Mail className="w-5 h-5 text-[#30C4C1]" />
+                  info@sofsecure.com
+                </div>
+                <div className="flex items-center gap-3 text-sm text-gray-300">
+                  <Phone className="w-5 h-5 text-[#30C4C1]" />
+                  +91-8527611337
+                </div>
               </div>
 
+              {/* FORM */}
               <div className="p-12">
                 <form
-  onSubmit={handleSubmit}
-  noValidate
-  className="grid grid-cols-1 sm:grid-cols-2 gap-8"
->
-
+                  noValidate
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+                >
                   {[
                     { label: "Title", name: "title" },
                     { label: "Company Name", name: "companyName" },
@@ -391,7 +396,6 @@ export default function ContactModal({ open, onClose }) {
                           : handleChange
                       }
                       placeholder={field.label}
-                      required={["firstName", "email", "phone"].includes(field.name)}
                       className="w-full rounded-xl bg-white/5 border border-white/15 px-6 py-4 text-base text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#30C4C1]/50"
                     />
                   ))}
@@ -410,14 +414,14 @@ export default function ContactModal({ open, onClose }) {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your requirement"
-                    required
-                    minLength={10}
                     className="sm:col-span-2 w-full rounded-xl bg-white/5 border border-white/15 px-6 py-4 text-base text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#30C4C1]/50 resize-none"
                   />
 
                   <div className="sm:col-span-2 pt-4">
+                    {/* 🔴 IMPORTANT FIX */}
                     <button
-                      type="submit"
+                      type="button"
+                      onClick={handleSubmit}
                       disabled={loading}
                       className="w-full bg-[#30C4C1] text-black py-5 rounded-full text-lg font-semibold hover:scale-[1.02] transition"
                     >
