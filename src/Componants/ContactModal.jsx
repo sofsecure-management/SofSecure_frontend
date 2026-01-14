@@ -217,6 +217,40 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function ContactModal({ open, onClose }) {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/enquiry`,
+        formData
+      );
+
+      alert("Enquiry submitted successfully ✅");
+
+      setFormData({
+        title: "",
+        companyName: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        country: "",
+        message: "",
+      });
+
+      onClose();
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong ❌");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const [formData, setFormData] = useState({
     title: "",
@@ -286,40 +320,7 @@ export default function ContactModal({ open, onClose }) {
     return true;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) return;
-
-    setLoading(true);
-
-    try {
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/enquiry`,
-        formData
-      );
-
-      alert("Enquiry submitted successfully ✅");
-
-      setFormData({
-        title: "",
-        companyName: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        country: "",
-        message: "",
-      });
-
-      onClose();
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong ❌");
-    } finally {
-      setLoading(false);
-    }
-  };
+  
 
   return (
     <AnimatePresence>
