@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <>
       <Navbar />
-      <Outlet />   {/* 👈 yahan pages inject honge */}
+      <Outlet />   
       <Footer />
     </>
   );

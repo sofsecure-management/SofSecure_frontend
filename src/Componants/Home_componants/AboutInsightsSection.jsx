@@ -43,7 +43,7 @@ export default function AboutInsightsSection() {
               border border-white/10
             "
           >
-            {/* 🔥 Glow Effect */}
+            {/* Glow Effect */}
             <div className="absolute -top-32 -right-32 w-72 h-72 bg-teal-500/20 rounded-full blur-[120px]" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-400/10 rounded-full blur-[100px]" />
 

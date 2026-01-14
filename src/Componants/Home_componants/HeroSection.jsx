@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactModal from "../ContactModal";
 
-const SLIDE_DURATION = 6000; // 6s – premium timing
+
+const SLIDE_DURATION = 2000; // 6s – premium timing
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -103,12 +104,7 @@ const HeroSection = () => {
 
           {/* PROGRESS */}
           <div className="mb-12">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="h-px w-16 bg-white/40" />
-              <div className="tracking-widest text-sm">
-                0{currentSlide + 1} / 0{slides.length}
-              </div>
-            </div>
+            
 
             <div className="h-[1px] w-24 bg-white/30">
               <motion.div
