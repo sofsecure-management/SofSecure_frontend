@@ -363,9 +363,11 @@ export default function ContactModal({ open, onClose }) {
 
               <div className="p-12">
                 <form
-                  onSubmit={handleSubmit}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-8"
-                >
+  onSubmit={handleSubmit}
+  noValidate
+  className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+>
+
                   {[
                     { label: "Title", name: "title" },
                     { label: "Company Name", name: "companyName" },
