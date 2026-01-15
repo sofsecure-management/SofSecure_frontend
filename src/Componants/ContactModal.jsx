@@ -31,15 +31,9 @@ const handleSubmit = async (e) => {
   setLoading(true);
 
   try {
-    // 1️⃣ MongoDB save (FAST)
+    // ✅ Single API call (MongoDB + Google Sheet + Mail)
     await axios.post(
       `${import.meta.env.VITE_API_URL}/api/enquiry`,
-      formData
-    );
-
-    // 2️⃣ Google Sheet + Mail (SYNC API)
-    await axios.post(
-      `${import.meta.env.VITE_API_URL}/api/enquiry-sync`,
       formData
     );
 
@@ -57,7 +51,6 @@ const handleSubmit = async (e) => {
     });
 
     onClose();
-
   } catch (err) {
     console.error(err);
     alert("Something went wrong ❌");
@@ -65,6 +58,7 @@ const handleSubmit = async (e) => {
     setLoading(false);
   }
 };
+
 
 
  
