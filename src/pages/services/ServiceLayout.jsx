@@ -14,7 +14,7 @@ export default function ServiceLayout({
       <div className="max-w-6xl mx-auto space-y-24">
 
         {/* HERO */}
-        <div className="max-w-4xl">
+        {/* <div className="max-w-4xl">a
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -32,28 +32,48 @@ export default function ServiceLayout({
           >
             {intro}
           </motion.p>
-        </div>
+        </div> */}
+
+
+          {/* HERO WITH BACKGROUND IMAGE */}
+<div className="relative w-screen left-1/2 -translate-x-1/2">
+  <div
+    className="relative h-[520px] flex items-center"
+    style={{
+      backgroundImage: `url(${image})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r 
+                    from-black/80 via-black/60 to-black/30" />
+
+    {/* Content */}
+    <div className="relative max-w-6xl mx-auto px-6">
+      <motion.h1
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl lg:text-5xl font-bold leading-tight mb-6"
+      >
+        {title}
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15 }}
+        className="text-lg text-gray-300 leading-relaxed max-w-3xl"
+      >
+        {intro}
+      </motion.p>
+    </div>
+  </div>
+</div>
 
         {/* FULL WIDTH IMAGE (Before Why This Matters) */}
-        {image && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="relative w-screen left-1/2 -translate-x-1/2 
-                       h-[420px] md:h-[520px] overflow-hidden"
-          >
-            <img
-              src={image}
-              alt={`${title} illustration`}
-              className="max-w-6xl mx-auto space-y-24 object-cover"
-            />
-
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t 
-                            from-black/70 via-black/40 to-black/20" />
-          </motion.div>
-        )}
+        
 
         {/* WHY THIS MATTERS */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
