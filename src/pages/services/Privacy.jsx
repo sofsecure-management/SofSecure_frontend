@@ -7,7 +7,7 @@ const Privacy = () => {
     <ServiceLayout
       title="Privacy & Data Protection"
       intro="Our Privacy services help organizations establish strong data protection practices and comply with evolving privacy regulations."
-      image="/hero_img/hero1.webp" 
+      image="/services/Privacy_&_Data_Protection.webp" 
       why="With growing data privacy regulations and increased data usage, organizations must protect personal information and maintain compliance."
       approach="We assess privacy controls, data handling practices, and compliance with applicable regulations to strengthen privacy governance."
       benefits={[

@@ -9,7 +9,7 @@ const SOXCompliance = () => {
 
       intro="Our SOX Compliance services help organizations design, implement, and maintain effective internal controls over financial reporting in alignment with the Sarbanes-Oxley Act."
 
-        image="/hero_img/hero1.webp" 
+        image="/services/SOX_Compliance.webp" 
 
       why="Sarbanes-Oxley compliance is critical for ensuring accuracy, transparency, and integrity in financial reporting. Inadequate SOX controls can lead to regulatory penalties, audit failures, and loss of investor confidence."
 

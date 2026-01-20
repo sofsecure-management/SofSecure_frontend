@@ -10,6 +10,7 @@ import Footer from '../navbar/Footer'
 import ContactFormHome_page from '../Componants/ContactFormHome_page'
 import AgileInternalAudit from './services/AgileInternalAudit'
 import HomeFAQs from '../Faqs/FAQs'
+import ServicesMarquee from '../Componants/Home_componants/ServicesMarquee'
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
         <div>
            
             <HeroSection></HeroSection>
+            <ServicesMarquee></ServicesMarquee>
             <AboutInsightsSection></AboutInsightsSection>
             <WhyChooseUs></WhyChooseUs>
              <AuditInsights></AuditInsights>

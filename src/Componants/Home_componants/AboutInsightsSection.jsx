@@ -15,10 +15,27 @@ const fadeUp = {
   }),
 };
 
+
 export default function AboutInsightsSection() {
+  const services = [
+  "IT Audit Services",
+  "SOC Reports",
+  "Cybersecurity Assessment",
+  "IT Governance & Compliance",
+  "Agile Internal Audit",
+  "Board & Audit Committee Governance",
+  "Enterprise Risk Management",
+  "ESG & Sustainability",
+  "Privacy",
+  "Regulatory Compliance",
+  "SOX Compliance",
+];
+
+
   return (
-    <section className="relative bg-[#1f252d] text-white py-28">
+    <section className="relative bg-[#1f252d] text-white py-28 ">
       <div className="mx-auto max-w-7xl  px-6">
+        
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
 
@@ -29,19 +46,21 @@ export default function AboutInsightsSection() {
             whileInView="visible"
             viewport={{ once: true }}
             className="
-              relative
-              -mt-40
-              max-w-2xl
-              rounded-2xl
-              p-12
-              shadow-2xl
-              overflow-hidden
-              bg-gradient-to-br
-              from-[#232a33]
-              via-[#1f2f36]
-              to-[#0f1720]
-              border border-white/10
-            "
+  order-2 lg:order-2
+  relative
+  -mt-55
+  z-50
+  max-w-2xl
+  rounded-2xl
+  p-12
+  shadow-2xl
+  overflow-hidden
+  bg-gradient-to-br
+  from-[#232a33]
+  via-[#1f2f36]
+  to-[#0f1720]
+  border border-white/10
+"
           >
             {/* Glow Effect */}
             <div className="absolute -top-32 -right-32 w-72 h-72 bg-teal-500/20 rounded-full blur-[120px]" />
@@ -49,7 +68,7 @@ export default function AboutInsightsSection() {
 
             <div className="relative z-10">
               {/* ABOUT */}
-              <h2 className="text-3xl font-semibold mb-6">
+              <h2 className="text-3xl font-semibold mb-6 ">
                 About Us
               </h2>
 

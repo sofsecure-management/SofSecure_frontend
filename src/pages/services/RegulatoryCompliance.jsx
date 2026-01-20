@@ -7,7 +7,7 @@ const RegulatoryCompliance = () => {
     <ServiceLayout
       title="Regulatory Compliance"
       intro="Our Regulatory Compliance services help organizations meet regulatory requirements efficiently while reducing compliance risks."
-      image="/hero_img/hero1.webp" 
+      image="/services/Regulatory_Compliance.webp" 
       why="Failure to comply with regulations can lead to penalties, reputational damage, and operational disruption."
       approach="We evaluate regulatory requirements, assess current compliance status, and implement structured compliance programs."
       benefits={[

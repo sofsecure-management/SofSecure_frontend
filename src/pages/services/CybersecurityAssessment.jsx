@@ -7,7 +7,7 @@ const CybersecurityAssessment = () => {
     <ServiceLayout
       title="Cybersecurity Assessment"
       intro="Our Cybersecurity Assessment services help organizations identify security gaps, vulnerabilities, and threats across their IT environment to strengthen their overall security posture."
-      image="/hero_img/hero1.webp" 
+      image="/services/Cybersecurity_Assessment.webp" 
       why="With increasing cyber threats and regulatory scrutiny, organizations face significant risks from data breaches, ransomware, and system compromises. A proactive cybersecurity assessment helps reduce exposure and protect critical assets."
       approach="We conduct in-depth assessments of networks, systems, applications, access controls, and security policies using industry best practices. Our focus is on identifying real-world risks and delivering actionable remediation strategies."
       benefits={[

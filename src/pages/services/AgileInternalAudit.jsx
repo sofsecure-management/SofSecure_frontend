@@ -8,7 +8,7 @@ const AgileInternalAudit = () => {
       title="Agile Internal Audit"
       intro="Our Agile Internal Audit approach delivers faster, more flexible, and risk-focused audit engagements that align with rapidly changing business environments."
 
-      image="/hero_img/hero1.webp" 
+      image="/services/Agile_Internal_Audit.webp" 
       
 
       why="Traditional audit models often fail to keep pace with modern, fast-moving organizations. Agile Internal Audit enables continuous risk assessment, quicker insights, and better alignment with business priorities."
