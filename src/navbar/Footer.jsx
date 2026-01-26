@@ -50,19 +50,19 @@ export default function Footer() {
                 <div>
                   <p className="text-white font-medium">India</p>
                   <p>Unit No. 201–202, 2nd Floor, Tower A, Paras Twin Tower, Sector-54, Gurugram, Haryana 122011</p>
-                  <p className="text-gray-300">+919220122201</p>
+                  <p className="text-gray-300">+91-92201-22201</p>
                 </div>
 
                 <div>
                   <p className="text-white font-medium">United Kingdom</p>
                   <p>15 Great Queen Street, London WC2B 5TD</p>
-                  <p className="text-gray-300"> +44 7881 859661</p>
+                  <p className="text-gray-300"> +44-7881-859661</p>
                 </div>
 
                 <div>
                   <p className="text-white font-medium">United States of America</p>
                   <p>770 Pasquinelli Drive, Suite 424, Westmont, IL 60559</p>
-                  <p className="text-gray-300">+919220122201</p>
+                  <p className="text-gray-300">+91-92201-22201</p>
                 </div>
 
                 <p>
