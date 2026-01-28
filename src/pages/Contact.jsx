@@ -205,11 +205,11 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      await axios.post(
-        "https://sofsecure-backend-production.up.railway.app/api/enquiry",
-        formData,
-        { headers: { "Content-Type": "application/json" } }
-      );
+     await axios.post(
+  "/.netlify/functions/enquiry",
+  formData,
+  { headers: { "Content-Type": "application/json" } }
+);
 
       alert("Message sent successfully ✅");
 
