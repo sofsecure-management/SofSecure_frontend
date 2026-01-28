@@ -49,21 +49,21 @@ export const handler = async (event) => {
     });
 
     /* ===== EMAIL (RESEND) ===== */
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    // const resend = new Resend(process.env.RESEND_API_KEY);
 
-    await resend.emails.send({
-      from: "SofSecure <info@sofsecure.com>",
-      to: process.env.ADMIN_EMAIL,
-      subject: "New Website Enquiry",
-      html: `
-        <h3>New Enquiry</h3>
-        <p><b>Name:</b> ${firstName} ${lastName}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p><b>Country:</b> ${country}</p>
-        <p>${message}</p>
-      `,
-    });
+    // await resend.emails.send({
+    //   from: "SofSecure <info@sofsecure.com>",
+    //   to: process.env.ADMIN_EMAIL,
+    //   subject: "New Website Enquiry",
+    //   html: `
+    //     <h3>New Enquiry</h3>
+    //     <p><b>Name:</b> ${firstName} ${lastName}</p>
+    //     <p><b>Email:</b> ${email}</p>
+    //     <p><b>Phone:</b> ${phone}</p>
+    //     <p><b>Country:</b> ${country}</p>
+    //     <p>${message}</p>
+    //   `,
+    // });
 
     return {
       statusCode: 200,
