@@ -829,11 +829,11 @@ export default function ContactModal({ open, onClose }) {
     setLoading(true);
 
       try {
-    await axios.post(
-      "https://sofsecure-backend-production.up.railway.app/api/enquiry",
-      formData,
-      { headers: { "Content-Type": "application/json" } }
-    );
+   await axios.post(
+  "/.netlify/functions/enquiry",
+  formData,
+  { headers: { "Content-Type": "application/json" } }
+);
 
 
       alert("Enquiry submitted successfully ✅");

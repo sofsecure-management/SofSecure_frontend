@@ -31,7 +31,7 @@ export default function ContactFormHome_page() {
 
           <p className="text-gray-400 text-lg max-w-xl">
             Ready to strengthen your IT governance, cybersecurity posture,
-            and compliance framework? Connect with SofSecure and speak
+            and compliance framework? Connect with SofSecure. and speak
             directly with our audit and risk advisory experts.
           </p>
 
