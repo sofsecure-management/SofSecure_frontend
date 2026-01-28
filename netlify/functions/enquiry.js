@@ -1,5 +1,5 @@
 const { google } = require("googleapis");
-import { Resend } from "resend";
+const { Resend } = require("resend");
 
 export const handler = async (event) => {
   try {
