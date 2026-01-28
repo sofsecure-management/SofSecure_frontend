@@ -52,7 +52,7 @@ export const handler = async (event) => {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-      from: "SofSecure <onboarding@resend.dev>",
+      from: "SofSecure <info@sofsecure.com>",
       to: process.env.ADMIN_EMAIL,
       subject: "New Website Enquiry",
       html: `
