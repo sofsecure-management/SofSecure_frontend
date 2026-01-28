@@ -4,10 +4,7 @@ import { Resend } from "resend";
 export const handler = async (event) => {
   try {
     if (event.httpMethod !== "POST") {
-      return {
-        statusCode: 405,
-        body: "Method Not Allowed",
-      };
+      return { statusCode: 405, body: "Method Not Allowed" };
     }
 
     const {
@@ -21,17 +18,7 @@ export const handler = async (event) => {
       message,
     } = JSON.parse(event.body);
 
-    if (!firstName || !email || !message) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({
-          success: false,
-          message: "Required fields missing",
-        }),
-      };
-    }
-
-    /* ================= GOOGLE SHEETS ================= */
+    /* ===== GOOGLE AUTH ===== */
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
@@ -61,7 +48,7 @@ export const handler = async (event) => {
       },
     });
 
-    /* ================= EMAIL (RESEND) ================= */
+    /* ===== EMAIL (RESEND) ===== */
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
@@ -69,33 +56,25 @@ export const handler = async (event) => {
       to: process.env.ADMIN_EMAIL,
       subject: "New Website Enquiry",
       html: `
-        <h3>New Enquiry Received</h3>
+        <h3>New Enquiry</h3>
         <p><b>Name:</b> ${firstName} ${lastName}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Phone:</b> ${phone}</p>
         <p><b>Country:</b> ${country}</p>
-        <p><b>Message:</b><br/>${message}</p>
+        <p>${message}</p>
       `,
     });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        success: true,
-        message: "Enquiry submitted successfully",
-      }),
+      body: JSON.stringify({ success: true }),
     };
 
-  } catch (error) {
-    console.error("FUNCTION ERROR:", error);
-
+  } catch (err) {
+    console.error("FUNCTION ERROR:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        success: false,
-        message: "Internal server error",
-        error: error.message,
-      }),
+      body: JSON.stringify({ error: err.message }),
     };
   }
 };
