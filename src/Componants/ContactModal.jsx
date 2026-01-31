@@ -32,7 +32,7 @@ export default function ContactModal({ open, onClose }) {
 
       try {
    await axios.post(
-  "/.netlify/functions/enquiry",
+  "/api/enquiry",
   formData,
   { headers: { "Content-Type": "application/json" } }
 );
