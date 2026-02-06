@@ -221,9 +221,9 @@ const calculateLeadScore = ({
   const domain = email.split("@")[1]?.toLowerCase();
   if (domain && !blockedDomains.includes(domain)) score += 30;
 
-  if (score >= 80) return "HOT 🔥";
-  if (score >= 50) return "WARM 🟡";
-  return "COLD ❄️";
+ if (score >= 80) return "High Priority";
+if (score >= 50) return "Medium Priority";
+return "Low Priority";
 };
 
 /* 📅 ICS FILE */
