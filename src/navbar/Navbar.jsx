@@ -362,25 +362,31 @@ export default function Navbar() {
       {/* ================= TOP BAR ================= */}
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
   {/* LOGO */}
- <Link
-  to="/"
-  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-  className="flex items-center gap-2.5"
->
-  {/* Logo Icon */}
-  <div className="w-11 h-11 rounded-full bg-black/60 border border-white/10 flex items-center justify-center">
-    <img
-      src={logo}
-      alt="SofSecure"
-      className="w-6 h-6"
-    />
-  </div>
+  <Link
+    to="/"
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    className="flex items-center gap-3"
+  >
+    {/* Logo Icon */}
+    <div className="w-11 h-11 rounded-full bg-black/60 border border-white/10 flex items-center justify-center">
+      <img
+        src={logo}
+        alt="SofSecure"
+        className="w-6 h-6"
+      />
+    </div>
 
-  {/* Brand Text */}
-  <span className="relative top-[1px] text-[18px] font-medium tracking-tight bg-gradient-to-r from-[#30C4C1] via-[#6EE7E5] to-white bg-clip-text text-transparent">
-    Be secure with SofSecure.
-  </span>
-</Link>
+    {/* Brand Text */}
+    <div className="flex flex-col justify-center leading-tight">
+      <span className="text-[20px] font-semibold text-white tracking-tight">
+        Sof<span className="text-[#30C4C1]">Secure</span>.
+      </span>
+    <span className="mt-[1px] text-[10px] font-semibold tracking-wide text-white">
+  Be secure with SofSecure.
+</span>
+    </div>
+  </Link>
+
 
    
 
