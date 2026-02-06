@@ -324,19 +324,29 @@ export default function ContactModal({ open, onClose }) {
 
   setLoading(true);
   try {
-    await axios.post("/api/enquiry", {
-      ...formData,
-      preferredDateTime,
-    });
+    await axios.post(
+  "/api/enquiry",
+  {
+    ...formData,
+    preferredDateTime,
+  },
+  {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }
+);
 
     alert("Enquiry submitted successfully ✅");
     onClose();
-  } catch (err) {
-    setError(err.response?.data?.message || "Something went wrong");
-  } finally {
-    setLoading(false);
-  }
-};
+  }  catch (err) {
+  console.error("🔥 ENQUIRY ERROR:", err.response || err);
+
+  setError(
+    err.response?.data?.message ||
+    "Server error — check Vercel logs"
+  );
+}
 
 
   useEffect(() => {
