@@ -294,19 +294,7 @@ export default function ContactModal({ open, onClose }) {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  /* 🔐 reCAPTCHA */
- const executeRecaptcha = async () => {
-  if (!window.grecaptcha) {
-    throw new Error("reCAPTCHA not loaded");
-  }
-
-  await window.grecaptcha.ready();
-
-  return await window.grecaptcha.execute(
-    import.meta.env.VITE_RECAPTCHA_SITE_KEY,
-    { action: "contact_enquiry" }
-  );
-};
+ 
 
   /* ✅ FRONTEND VALIDATION */
   const validateForm = () => {
@@ -322,37 +310,34 @@ export default function ContactModal({ open, onClose }) {
     return null;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError("");
 
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
+  const validationError = validateForm();
+  if (validationError) {
+    setError(validationError);
+    return;
+  }
 
-    const preferredDateTime = selectedDateTime.toISOString();
+  const preferredDateTime = selectedDateTime.toISOString();
 
-    setLoading(true);
-    try {
-      const token = await executeRecaptcha();
-      if (!token) throw new Error("Captcha verification failed");
+  setLoading(true);
+  try {
+    await axios.post("/api/enquiry", {
+      ...formData,
+      preferredDateTime,
+    });
 
-      await axios.post("/api/enquiry", {
-        ...formData,
-        preferredDateTime,
-        recaptchaToken: token,
-      });
+    alert("Enquiry submitted successfully ✅");
+    onClose();
+  } catch (err) {
+    setError(err.response?.data?.message || "Something went wrong");
+  } finally {
+    setLoading(false);
+  }
+};
 
-      alert("Enquiry submitted successfully ✅");
-      onClose();
-    } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";

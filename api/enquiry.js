@@ -184,13 +184,12 @@
 // }
 
 
-
 import { google } from "googleapis";
 import { Resend } from "resend";
-import fetch from "node-fetch";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+/* ❌ BLOCK FREE EMAIL DOMAINS */
 const blockedDomains = [
   "gmail.com",
   "yahoo.com",
@@ -206,6 +205,7 @@ const isOfficialEmail = (email) => {
   return domain && !blockedDomains.includes(domain);
 };
 
+/* 🔥 LEAD SCORE */
 const calculateLeadScore = ({
   email,
   description,
@@ -213,6 +213,7 @@ const calculateLeadScore = ({
   preferredDateTime,
 }) => {
   let score = 0;
+
   if (companyName?.length > 3) score += 20;
   if (description?.length > 50) score += 30;
   if (preferredDateTime) score += 20;
@@ -225,8 +226,13 @@ const calculateLeadScore = ({
   return "COLD ❄️";
 };
 
+/* 📅 ICS FILE */
 const createICS = ({ startDate, email, name }) => {
-  const start = new Date(startDate).toISOString().replace(/[-:]/g, "").split(".")[0];
+  const start = new Date(startDate)
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .split(".")[0];
+
   const end = new Date(new Date(startDate).getTime() + 30 * 60000)
     .toISOString()
     .replace(/[-:]/g, "")
@@ -256,8 +262,9 @@ export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   if (req.method === "OPTIONS") return res.status(200).end();
-  if (req.method !== "POST")
+  if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
+  }
 
   try {
     const {
@@ -270,46 +277,14 @@ export default async function handler(req, res) {
       country,
       message,
       preferredDateTime,
-      recaptchaToken,
     } = req.body;
 
-    /* CAPTCHA */
-    /* ================= CAPTCHA VALIDATION ================= */
-
-if (!recaptchaToken) {
-  return res.status(400).json({
-    message: "Captcha token missing",
-  });
-}
-
-const captcha = await fetch(
-  "https://www.google.com/recaptcha/api/siteverify",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
-  }
-).then((r) => r.json());
-
-/* basic verification */
-if (!captcha.success) {
-  return res.status(400).json({
-    message: "Captcha verification failed",
-  });
-}
-
-/* reCAPTCHA v3 score check */
-if (typeof captcha.score === "number" && captcha.score < 0.5) {
-  return res.status(400).json({
-    message: "Spam detected",
-  });
-}
-
-
-    if (!isOfficialEmail(email))
-      return res.status(400).json({ message: "Official email required" });
+    /* ✅ BASIC VALIDATION */
+    if (!isOfficialEmail(email)) {
+      return res
+        .status(400)
+        .json({ message: "Official / business email required" });
+    }
 
     const leadScore = calculateLeadScore({
       email,
@@ -318,7 +293,7 @@ if (typeof captcha.score === "number" && captcha.score < 0.5) {
       preferredDateTime,
     });
 
-    /* GOOGLE SHEET */
+    /* 📊 GOOGLE SHEETS */
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
@@ -350,13 +325,14 @@ if (typeof captcha.score === "number" && captcha.score < 0.5) {
       },
     });
 
+    /* 📎 CALENDAR INVITE */
     const ics = createICS({
       startDate: preferredDateTime,
       email,
       name: `${firstName} ${lastName}`,
     });
 
-    /* ADMIN EMAIL */
+    /* 📧 ADMIN EMAIL */
     await resend.emails.send({
       from: `SofSecure <${process.env.FROM_EMAIL}>`,
       to: [process.env.ADMIN_EMAIL],
@@ -371,7 +347,7 @@ if (typeof captcha.score === "number" && captcha.score < 0.5) {
       `,
     });
 
-    /* CLIENT AUTO-REPLY + CALENDAR */
+    /* 📧 CLIENT AUTO-REPLY */
     await resend.emails.send({
       from: `SofSecure <${process.env.FROM_EMAIL}>`,
       to: [email],
@@ -387,7 +363,7 @@ if (typeof captcha.score === "number" && captcha.score < 0.5) {
         <p>Thank you for contacting <b>SofSecure</b>.</p>
         <p>Your consultation is scheduled for:</p>
         <p><b>${new Date(preferredDateTime).toLocaleString()}</b></p>
-        <p>Please find the calendar invite attached.</p>
+        <p>Calendar invite attached.</p>
         <p>Regards,<br/>SofSecure Team</p>
       `,
     });
@@ -395,7 +371,7 @@ if (typeof captcha.score === "number" && captcha.score < 0.5) {
     return res.status(200).json({ success: true });
 
   } catch (err) {
-    console.error(err);
+    console.error("ENQUIRY ERROR:", err);
     return res.status(500).json({ message: "Server error" });
   }
 }
