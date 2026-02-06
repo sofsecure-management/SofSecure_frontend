@@ -106,9 +106,9 @@ export default function AuditInsights() {
             <div className="flex items-start gap-5">
               <ShieldCheck className="w-11 h-11 text-[#30C4C1]" />
               <div>
-                <h4 className="text-xl font-semibold mb-1">
+                <h3 className="text-xl font-semibold mb-1">
                   Risk-Driven Audits
-                </h4>
+                </h3>
                 <p className="text-gray-400 text-sm">
                   Proactive identification of security gaps aligned with
                   regulatory standards.
@@ -119,9 +119,9 @@ export default function AuditInsights() {
             <div className="flex items-start gap-5">
               <Layers className="w-11 h-11 text-[#30C4C1]" />
               <div>
-                <h4 className="text-xl font-semibold mb-1">
+                <h3 className="text-xl font-semibold mb-1">
                   Scalable Frameworks
-                </h4>
+                </h3>
                 <p className="text-gray-400 text-sm">
                   Audit models designed to grow with your enterprise
                   infrastructure.
@@ -132,9 +132,9 @@ export default function AuditInsights() {
             <div className="flex items-start gap-5">
               <TrendingUp className="w-11 h-11 text-[#30C4C1]" />
               <div>
-                <h4 className="text-xl font-semibold mb-1">
+                <h3 className="text-xl font-semibold mb-1">
                   Continuous Improvement
-                </h4>
+                </h3>
                 <p className="text-gray-400 text-sm">
                   Ongoing assessments to adapt with evolving threats and
                   compliance needs.

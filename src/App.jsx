@@ -23,6 +23,9 @@ import AboutSofSecure from "./pages/About";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import Industries from "./pages/Industries";
+import LeadershipTeam from "./pages/LeadershipTeam";
+import OurClients from "./pages/OurClients";
+import Support from "./pages/Support";
 
 
 export default function App() {
@@ -50,6 +53,9 @@ export default function App() {
 
           {/* INDUSTRIES */}
           <Route path="/industries" element={<Industries />} />
+          <Route path="/company/leadership-team" element={<LeadershipTeam />} />
+          <Route path="/company/our-clients" element={<OurClients />} />
+          <Route path="/support" element={<Support />} />
 
           {/* SERVICES */}
           <Route path="/services/agile-internal-audit" element={<AgileInternalAudit />} />

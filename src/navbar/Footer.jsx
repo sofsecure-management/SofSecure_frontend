@@ -112,7 +112,7 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-x-10 gap-y-6 text-sm">
 
               <div>
-                <p className="text-gray-500 uppercase text-xs mb-2">Audit & Assurance</p>
+                <p className="text-gray-300 uppercase text-xs mb-2">Audit & Assurance</p>
                 <ul className="space-y-1">
                   <li><Link to="/services/it-audit-services" className="hover:text-[#30C4C1]">IT Audit Services</Link></li>
                   <li><Link to="/services/soc-reports" className="hover:text-[#30C4C1]">SOC Reports</Link></li>
