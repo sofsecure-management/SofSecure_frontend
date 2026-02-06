@@ -242,6 +242,8 @@
 //     </AnimatePresence>
 //   );
 // }
+
+
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -293,13 +295,18 @@ export default function ContactModal({ open, onClose }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   /* 🔐 reCAPTCHA */
-  const executeRecaptcha = async () => {
-    if (!window.grecaptcha) return null;
-    return await window.grecaptcha.execute(
-      import.meta.env.VITE_RECAPTCHA_SITE_KEY,
-      { action: "contact_enquiry" }
-    );
-  };
+ const executeRecaptcha = async () => {
+  if (!window.grecaptcha) {
+    throw new Error("reCAPTCHA not loaded");
+  }
+
+  await window.grecaptcha.ready();
+
+  return await window.grecaptcha.execute(
+    import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+    { action: "contact_enquiry" }
+  );
+};
 
   /* ✅ FRONTEND VALIDATION */
   const validateForm = () => {
