@@ -1,0 +1,58 @@
+/* MAIN */
+.react-datepicker {
+  background: #0b0f14;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* HEADER */
+.react-datepicker__header {
+  background: #0e131a;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.react-datepicker__current-month {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* DAY NAMES */
+.react-datepicker__day-name {
+  color: #9ca3af;
+}
+
+/* DAYS */
+.react-datepicker__day {
+  color: #e5e7eb;
+}
+
+.react-datepicker__day:hover {
+  background: rgba(48,196,193,0.25);
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background: #30c4c1;
+  color: #000;
+  font-weight: 600;
+}
+
+/* 🚑 TIME COLUMN FIX (MAIN ISSUE) */
+.react-datepicker__time-container,
+.react-datepicker__time,
+.react-datepicker__time-box {
+  background: #0b0f14;
+}
+
+.react-datepicker__time-list-item {
+  color: #e5e7eb;
+}
+
+.react-datepicker__time-list-item:hover {
+  background: rgba(48,196,193,0.25);
+}
+
+.react-datepicker__time-list-item--selected {
+  background: #30c4c1;
+  color: #000;
+  font-weight: 600;
+}
