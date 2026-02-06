@@ -243,7 +243,6 @@
 //   );
 // }
 
-
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -266,8 +265,7 @@ const blockedDomains = [
 ];
 
 const isProfessionalEmail = (email) => {
-  const regex =
-    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!regex.test(email)) return false;
   const domain = email.split("@")[1]?.toLowerCase();
   return domain && !blockedDomains.includes(domain);
@@ -294,8 +292,6 @@ export default function ContactModal({ open, onClose }) {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
- 
-
   /* ✅ FRONTEND VALIDATION */
   const validateForm = () => {
     if (formData.description.trim().length < 30)
@@ -310,44 +306,45 @@ export default function ContactModal({ open, onClose }) {
     return null;
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setError("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
-  const validationError = validateForm();
-  if (validationError) {
-    setError(validationError);
-    return;
-  }
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
 
-  const preferredDateTime = selectedDateTime.toISOString();
+    const preferredDateTime = selectedDateTime.toISOString();
 
-  setLoading(true);
-  try {
-    await axios.post(
-  "/api/enquiry",
-  {
-    ...formData,
-    preferredDateTime,
-  },
-  {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }
-);
+    setLoading(true);
+    try {
+      await axios.post(
+        "/api/enquiry",
+        {
+          ...formData,
+          preferredDateTime,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-    alert("Enquiry submitted successfully ✅");
-    onClose();
-  }  catch (err) {
-  console.error("🔥 ENQUIRY ERROR:", err.response || err);
-
-  setError(
-    err.response?.data?.message ||
-    "Server error — check Vercel logs"
-  );
-}
-
+      alert("Enquiry submitted successfully ✅");
+      onClose();
+    } catch (err) {
+      console.error("🔥 ENQUIRY ERROR:", err.response || err);
+      setError(
+        err.response?.data?.message ||
+        "Server error — check Vercel logs"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -363,7 +360,7 @@ export default function ContactModal({ open, onClose }) {
             {/* HEADER */}
             <div className="px-12 pt-12 pb-8 border-b border-white/10">
               <h2 className="text-4xl font-bold text-white">
-                We’re here to help
+                We're here to help
               </h2>
               <p className="text-gray-400 mt-3 max-w-2xl">
                 Connect with SofSecure to discuss IT audit, cybersecurity,
@@ -373,69 +370,66 @@ export default function ContactModal({ open, onClose }) {
 
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* LEFT – ADDRESS + MAP */}
-              
-<div className="p-12 space-y-10 border-r border-white/10 bg-white/5">
-  <div>
-    <h4 className="flex items-center gap-2 text-xl font-semibold text-white mb-6">
-      <MapPin className="w-6 h-6 text-[#30C4C1]" />
-      Global Locations
-    </h4>
+              <div className="p-12 space-y-10 border-r border-white/10 bg-white/5">
+                <div>
+                  <h4 className="flex items-center gap-2 text-xl font-semibold text-white mb-6">
+                    <MapPin className="w-6 h-6 text-[#30C4C1]" />
+                    Global Locations
+                  </h4>
 
-    <div className="space-y-6 text-sm text-gray-300">
-      {/* INDIA */}
-      <div>
-        <strong className="text-white block mb-1">India</strong>
-        Unit No. 201–202, Tower A, Paras Twin Tower, Sector-54,
-        Gurugram, Haryana 122011
-        <div className="mt-2 flex items-center gap-2">
-          <Phone className="w-4 h-4 text-[#30C4C1]" />
-          +91-92201-22201
-        </div>
-      </div>
+                  <div className="space-y-6 text-sm text-gray-300">
+                    {/* INDIA */}
+                    <div>
+                      <strong className="text-white block mb-1">India</strong>
+                      Unit No. 201–202, Tower A, Paras Twin Tower, Sector-54,
+                      Gurugram, Haryana 122011
+                      <div className="mt-2 flex items-center gap-2">
+                        <Phone className="w-4 h-4 text-[#30C4C1]" />
+                        +91-92201-22201
+                      </div>
+                    </div>
 
-      {/* UNITED KINGDOM */}
-      <div>
-        <strong className="text-white block mb-1">United Kingdom</strong>
-        15 Great Queen Street, London WC2B 5TD
-        <div className="mt-2 flex items-center gap-2">
-          <Phone className="w-4 h-4 text-[#30C4C1]" />
-          +44-7881-859661
-        </div>
-      </div>
+                    {/* UNITED KINGDOM */}
+                    <div>
+                      <strong className="text-white block mb-1">United Kingdom</strong>
+                      15 Great Queen Street, London WC2B 5TD
+                      <div className="mt-2 flex items-center gap-2">
+                        <Phone className="w-4 h-4 text-[#30C4C1]" />
+                        +44-7881-859661
+                      </div>
+                    </div>
 
-      {/* UNITED STATES */}
-      <div>
-        <strong className="text-white block mb-1">
-          United States of America
-        </strong>
-        770 Pasquinelli Drive, Suite 424,
-        Westmont, IL 60559
-        <div className="mt-2 flex items-center gap-2">
-          <Phone className="w-4 h-4 text-[#30C4C1]" />
-          +91-92201-22201
-        </div>
-      </div>
-    </div>
-  </div>
+                    {/* UNITED STATES */}
+                    <div>
+                      <strong className="text-white block mb-1">
+                        United States of America
+                      </strong>
+                      770 Pasquinelli Drive, Suite 424,
+                      Westmont, IL 60559
+                      <div className="mt-2 flex items-center gap-2">
+                        <Phone className="w-4 h-4 text-[#30C4C1]" />
+                        +91-92201-22201
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-  {/* EMAIL */}
-  <div className="flex items-center gap-3 text-sm text-gray-300">
-    <Mail className="w-5 h-5 text-[#30C4C1]" />
-    info@sofsecure.com
-  </div>
+                {/* EMAIL */}
+                <div className="flex items-center gap-3 text-sm text-gray-300">
+                  <Mail className="w-5 h-5 text-[#30C4C1]" />
+                  info@sofsecure.com
+                </div>
 
-  {/* MAP */}
-  <div className="rounded-2xl overflow-hidden border border-white/10">
-    <iframe
-      title="SofSecure Location"
-      src="https://www.google.com/maps?q=Paras%20Twin%20Tower%20Sector%2054%20Gurgaon&output=embed"
-      className="w-full h-72 grayscale"
-      loading="lazy"
-    />
-  </div>
-</div>
-
-
+                {/* MAP */}
+                <div className="rounded-2xl overflow-hidden border border-white/10">
+                  <iframe
+                    title="SofSecure Location"
+                    src="https://www.google.com/maps?q=Paras%20Twin%20Tower%20Sector%2054%20Gurgaon&output=embed"
+                    className="w-full h-72 grayscale"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
 
               {/* RIGHT – FORM */}
               <div className="p-12">
@@ -475,29 +469,17 @@ export default function ContactModal({ open, onClose }) {
                     <label className="text-sm text-gray-300">
                       Preferred consultation date & time
                     </label>
-<DatePicker
-  selected={selectedDateTime}
-  onChange={(date) => setSelectedDateTime(date)}
-  showTimeSelect
-  timeIntervals={30}
-  timeCaption="Time"
-  dateFormat="MMMM d, yyyy h:mm aa"
-  minDate={new Date()}
-  placeholderText="Select date & time"
-
-  /* ❌ no portal, no popper */
-  className="
-    w-full rounded-xl
-    bg-[#0b0f14] text-white
-    border border-white/15
-    px-6 py-4
-    focus:outline-none
-    focus:ring-2 focus:ring-[#30C4C1]/50
-  "
-/>
-
-
-
+                    <DatePicker
+                      selected={selectedDateTime}
+                      onChange={(date) => setSelectedDateTime(date)}
+                      showTimeSelect
+                      timeIntervals={30}
+                      timeCaption="Time"
+                      dateFormat="MMMM d, yyyy h:mm aa"
+                      minDate={new Date()}
+                      placeholderText="Select date & time"
+                      className="w-full rounded-xl bg-[#0b0f14] text-white border border-white/15 px-6 py-4 focus:outline-none focus:ring-2 focus:ring-[#30C4C1]/50"
+                    />
 
                     <p className="text-xs text-gray-400">
                       Monday to Friday, 10:00 AM – 6:00 PM (local time)
@@ -521,7 +503,7 @@ export default function ContactModal({ open, onClose }) {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="sm:col-span-2 w-full bg-[#30C4C1] text-black py-5 rounded-full text-lg font-semibold"
+                    className="sm:col-span-2 w-full bg-[#30C4C1] text-black py-5 rounded-full text-lg font-semibold hover:bg-[#30C4C1]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? "Submitting..." : "Submit Enquiry"}
                   </button>
