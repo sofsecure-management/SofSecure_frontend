@@ -452,6 +452,7 @@ export default function ContactModal({ open, onClose }) {
                     ["lastName", "Last Name"],
                     ["email", "Business Email", "email"],
                     ["phone", "Business Phone"],
+                    ["country", "Country"],
                   ].map(([name, label, type]) => (
                     <input
                       key={name}

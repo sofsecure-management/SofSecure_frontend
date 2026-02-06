@@ -305,25 +305,27 @@ export default async function handler(req, res) {
     const sheets = google.sheets({ version: "v4", auth });
 
     await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Leads!A1",
-      valueInputOption: "USER_ENTERED",
-      requestBody: {
-        values: [[
-          new Date().toLocaleString(),
-          leadScore,
-          description,
-          companyName,
-          firstName,
-          lastName,
-          email,
-          phone,
-          country,
-          preferredDateTime,
-          message,
-        ]],
-      },
-    });
+  spreadsheetId: process.env.GOOGLE_SHEET_ID,
+  range: "Leads!A1",
+  valueInputOption: "USER_ENTERED",
+  requestBody: {
+    values: [[
+      "",                         // ✅ Sr No (EMPTY – auto formula handle karega)
+      new Date().toLocaleString(),// ✅ Date
+      leadScore,                  // ✅ Lead Score
+      description,                // ✅ Description
+      companyName,                // ✅ Company Name
+      firstName,                  // ✅ First Name
+      lastName,                   // ✅ Last Name
+      email,                      // ✅ Email
+      phone,                      // ✅ Phone
+      country,                    // ✅ Country
+      preferredDateTime,          // ✅ Preferred Date Time
+      message                     // ✅ Message
+    ]],
+  },
+});
+
 
     /* 📎 CALENDAR INVITE */
     const ics = createICS({
