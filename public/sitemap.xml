@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ================= HOME ================= -->
+  <url>
+    <loc>https://www.sofsecure.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ================= COMPANY ================= -->
+  <url>
+    <loc>https://www.sofsecure.com/about</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/careers</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/contact</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ================= INDUSTRIES ================= -->
+  <url>
+    <loc>https://www.sofsecure.com/industries</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ================= SERVICES ================= -->
+  <url>
+    <loc>https://www.sofsecure.com/services/agile-internal-audit</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/it-audit-services</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/soc-reports</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/sox-compliance</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/cybersecurity-assessment</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/privacy</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/regulatory-compliance</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/it-governance-compliance</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/enterprise-risk-management</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/board-audit-governance</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.sofsecure.com/services/esg-sustainability</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
