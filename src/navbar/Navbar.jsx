@@ -372,13 +372,13 @@ export default function Navbar() {
       <img
         src={logo}
         alt="SofSecure"
-        className="w-6 h-6"
+        className="w-10 h-10"
       />
     </div>
 
     {/* Brand Text */}
     <div className="flex flex-col justify-center leading-tight">
-      <span className="text-[20px] font-semibold text-white tracking-tight">
+      <span className="text-[30px] font-semibold text-white tracking-tight">
         Sof<span className="text-[#30C4C1]">Secure</span>.
       </span>
     <span className="mt-[1px] text-[10px] font-semibold tracking-wide text-white">
