@@ -78,10 +78,12 @@ const [openContact, setOpenContact] = useState(false);
               </h2>
 
               <p className="text-gray-300 text-lg leading-relaxed mb-10">
-                At SofSecure, we specialize in providing comprehensive IT Audit
-                services tailored to your organization's needs. With deep domain
-                expertise, we ensure your IT systems remain secure, compliant,
-                and optimized for long-term performance.
+                At SofSecure, our IT Audit solutions are tailored to
+              meet the unique needs of your business enterprise.
+              Leveraging our in-depth industry knowledge, you can
+              be sure that your business enterprise has a secure,
+              compliant, and well-aligned IT environment for
+              success.
               </p>
 
               {/* VALUES */}
@@ -109,9 +111,9 @@ const [openContact, setOpenContact] = useState(false);
                 </h3>
 
                 <p className="text-gray-300 leading-relaxed text-sm">
-                  These values are our foundation. They shape who we are and how
-                  we work. We are driven by integrity, accountability, and an
-                  unwavering commitment to our clients’ success.
+                  These are the principles that guide our identity and the way that we
+                    operate. We are driven by integrity, defined by accountability, and
+                    committed to our clients' long-term success unloaded.
                 </p>
               </div>
 

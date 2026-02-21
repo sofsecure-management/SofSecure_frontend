@@ -137,8 +137,13 @@ const SOCReports = () => {
         title="SOC Reports Services"
         intro="Our SOC Reports services support organizations in achieving SOC 1, SOC 2, and SOC 3 compliance and assurance to demonstrate trust, security, and control effectiveness."
         image="/services/SOC_report.webp"
-        why="SOC reports are critical for demonstrating trust, security, and the effectiveness of internal controls to customers, regulators, and stakeholders. Without SOC assurance, organizations may face increased scrutiny, lost business opportunities, and compliance risks."
-        approach="We guide organizations through SOC readiness assessments, gap analysis, remediation planning, and reporting in accordance with AICPA standards. Our approach ensures clarity, efficiency, and successful SOC engagements."
+        why="SOC reports hold an important place in showing trust, security standards, and
+        the effectiveness of internal controls. Without SOC reports or SOC assurance, an
+        organization would face more scrutiny, business loss, and compliance risks.
+        "
+        approach="We assist organizations with SOC readiness assessments, comprehensive gap
+        analysis, remediation planning, and reporting that meets AICPA standards. Our
+        process helps create clarity and efficiency in a complete SOC experience."
         benefits={[
           "Improved trust and confidence with clients and business partners",
           "Comprehensive support for SOC 1, SOC 2, and SOC 3 readiness",

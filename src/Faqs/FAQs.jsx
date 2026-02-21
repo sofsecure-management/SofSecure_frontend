@@ -111,32 +111,53 @@ const faqs = [
   {
     question: "What services does your company provide?",
     answer:
-      "We provide a comprehensive range of governance, risk, and compliance services including IT Audit Services, SOC Reports, SOX Compliance, Cybersecurity Assessment, Privacy & Data Protection, Regulatory Compliance, Enterprise Risk Management, Board & Audit Committee Governance, and ESG & Sustainability advisory services.",
+      `We provide our clients an extensive range of service offerings, such as our Enterprise Risk
+Management, GRC, IT Audit, SOC Reporting, SoX, Cybersecurity, Data Protection, Regulatory, Privacy,Board Level Governance, and Audit Committee, as well as ESG, Sustainability, and other consulting
+services.
+`,
   },
   {
     question: "Why are IT audit and compliance services important for businesses?",
     answer:
-      "IT audit and compliance services help organizations identify risks, strengthen internal controls, ensure regulatory compliance, and protect sensitive data. They also provide stakeholders with confidence that systems and processes are operating effectively.",
+      `The importance of IT audit and compliance services is that they allow organizations to identify
+risks, improve internal systems, remain aligned to ensure compliance, protect confidential
+information, and increase confidence amongst their stakeholders by realizing that they have
+efficient systems and processes.
+`,
   },
   {
     question: "How do your services support better business decision-making?",
     answer:
-      "Our services deliver actionable insights into risks, controls, and governance practices. By aligning risk management with business objectives, we enable leadership teams to make informed and confident strategic decisions.",
+      `Our services offer relevant insights into risk exposure, control measures, and governance
+structures. By integrating risk management into meaningful business strategies, we enable
+business leaders to make informed decisions with confidence.`,
   },
   {
     question: "Do you work with startups as well as large enterprises?",
     answer:
-      "Yes, we work with organizations of all sizes, from startups to large enterprises. Our approach is scalable and tailored to each client’s industry, size, and regulatory requirements.",
+      `Yes, we work alongside businesses ranging from small
+startups to larger corporations. Our approach is fully
+scalable and thoughtfully tailored to the needs of the
+client.
+`,
   },
   {
     question: "How do you ensure a customized approach for each client?",
     answer:
-      "We begin by understanding your business model, industry, regulatory environment, and risk profile. Our solutions are practical, customized, and aligned with your strategic goals rather than generic frameworks.",
+    `Our approach is based on a deep understanding of your
+business model, industry landscape, regulatory
+obligation, and the overall risk profile. Practical, tailored
+solutions that are strategically aligned and meant to serve
+your goals-not generic frameworks that stress fit.
+`,
   },
   {
     question: "How can we get started with your services?",
     answer:
-      "You can get started by contacting us through our website. Our team will schedule an initial discussion to understand your requirements and recommend the most suitable services.",
+      `If you are ready to get started, just reach out to us
+through this website, and we will schedule an initial
+consultation to understand your needs and provide
+the most appropriate solutions for your organization.`,
   },
 ];
 

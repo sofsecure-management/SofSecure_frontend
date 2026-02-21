@@ -13,29 +13,35 @@ const features = [
   {
     id: "01",
     title: "Expertise",
-    description:
-      "Our team consists of highly skilled professionals with deep expertise in IT auditing, compliance, and cybersecurity frameworks.",
+    description:`Our team consists of experienced professionals who
+have in-depth experience in the field of IT auditing.
+`,
     icon: ShieldCheck,
   },
   {
     id: "02",
     title: "Customized Solutions",
-    description:
-      "We design tailored strategies aligned with your business goals, infrastructure, and regulatory requirements.",
+    description:`We create tailored strategies that complement your
+organizational goals, technological foundation, and
+compliance requirements.`,
     icon: Settings,
   },
   {
     id: "03",
     title: "Commitment to Quality",
-    description:
-      "Every engagement follows strict quality benchmarks to ensure accuracy, security, and long-term reliability.",
+    description:`Each engagement is conducted with an unwavering
+focus on quality, precision, and reliability along with
+superior security.`,
     icon: Award,
   },
   {
     id: "04",
     title: "Client-Centric Approach",
     description:
-      "We believe in partnerships, not transactions—transparent communication and measurable results drive everything we do.",
+      `We believe in building long-term
+relationships, not transacting business on
+a one-off basis. We measure our work in
+terms of results, not words.`,
     icon: Users,
   },
 ];

@@ -277,25 +277,23 @@ export default function AboutSofSecure() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6 text-gray-300 leading-relaxed text-lg">
               <p>
-                SofSecure is a forward-thinking cybersecurity, IT audit, and
-                compliance consulting firm committed to helping businesses operate
-                safely in an increasingly digital world. From safeguarding sensitive
-                data to strengthening digital infrastructures, we focus on building
-                long-term protection rather than short-term fixes.
+                SofSecure is a cutting-edge cybersecurity, IT audit, and compliance consulting firm that is committed to
+               enabling organizations to stay safe in an increasingly digital world. Whether it is information security or
+              enhancing IT infrastructure, we are devoted to providing long-term security, not just temporary fixes.
+
               </p>
 
               <p>
-                Today’s digital threats evolve rapidly. Our approach combines
-                advanced technology, proactive monitoring, and strategic thinking.
-                We design customized security and governance frameworks aligned
-                with each organization’s scale, goals, and risk profile.
+                With threat levels being constantly elevated with new challenges, our approach combines intelligent
+                technologies with constant monitoring, as well as strategic thinking with tailored security and governance
+                solutions that meet every organization's size, objectives, and risk profile.
+
               </p>
 
               <p>
-                Beyond technology, SofSecure stands for integrity, transparency,
-                and accountability. We partner closely with our clients, ensuring
-                clarity in communication, responsibility in execution, and
-                confidence in outcomes.
+                At SofSecure, we think security is about more than just technology. To us, integrity, transparency, and
+                accountability are very important values to espouse in our endeavors. By working intimately with our
+                customers, we can provide them with dependable communication and execution.
               </p>
             </div>
 
@@ -304,10 +302,10 @@ export default function AboutSofSecure() {
                 Our Purpose
               </h2>
               <p className="text-gray-300 leading-relaxed">
-                Our purpose is to create a secure digital ecosystem where
-                organizations can grow with confidence. We reduce risk, protect
-                reputations, and enable innovation by making security a strategic
-                advantage rather than a limitation.
+                Our aim is to deliver a secure digital space where businesses may flourish.
+                We are dedicated to protecting your brand, risks, and innovation by making
+                security a core strength
+                — not a barrier to progress.
               </p>
             </div>
           </div>
@@ -329,31 +327,41 @@ export default function AboutSofSecure() {
               <Habit
                 icon={<HeartHandshake className="text-cyan-400 mb-4" size={36} />}
                 title="Being Respectful"
-                text="We respect people, ideas, data, and time. Every interaction is guided by professionalism, empathy, and fairness."
+                text="We value time, data, people, and ideas above all else. Every
+                    interaction demonstrates our dedication to professionalism,
+                    careful consideration, and unwavering justice."
               />
 
               <Habit
                 icon={<MessageCircle className="text-cyan-400 mb-4" size={36} />}
                 title="Being Responsive"
-                text="We respond proactively, address concerns promptly, and ensure clarity in every engagement."
+                text="We are proactive, promptly resolve issues, and
+                  ensure complete transparency in all of our
+                  interactions.
+                  "
               />
 
               <Habit
                 icon={<ShieldCheck className="text-cyan-400 mb-4" size={36} />}
                 title="Always Communicating"
-                text="Transparent communication builds confidence. We explain risks clearly and share progress openly."
-              />
+                text="Trust is built on open and honest
+                communication. We communicate risks clearly
+                and openly discuss our progress."
+                              />
 
               <Habit
                 icon={<Leaf className="text-cyan-400 mb-4" size={36} />}
                 title="Demonstrating Stewardship"
-                text="We treat data, systems, and resources with responsibility and long-term care."
-              />
+                text="We exercise the highest level of responsibility when
+                handling data, systems, and resources to guarantee
+                their long-term safety and sustainable stewardship."
+                              />
 
               <Habit
                 icon={<Lock className="text-cyan-400 mb-4" size={36} />}
                 title="Building Trust"
-                text="Trust is earned through consistency, accountability, and results."
+                text="Consistency fosters trust, accountability fortifies it, and
+                quantifiable outcomes validate it."
               />
 
             </div>

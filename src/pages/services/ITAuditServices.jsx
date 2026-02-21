@@ -138,10 +138,19 @@ const ITAuditServices = () => {
       {/* ================= CONTENT ================= */}
       <ServiceLayout
         title="IT Audit Services"
-        intro="Our IT Audit Services provide a comprehensive assessment of IT infrastructure, systems, and controls to ensure security, reliability, and regulatory compliance."
+        intro="Our IT Audit Services provide you with an extensive
+            assessment of your IT infrastructure, systems, and internal
+            controls, and assist you in achieving the highest standards
+            of security, reliability, and regulatory compliance."
         image="/services/IT_Audit_Services.webp"
-        why="Technology plays a critical role in business operations, and weak IT controls can expose organizations to data breaches, operational failures, and compliance risks. Independent IT audits help identify and address these risks proactively."
-        approach="We evaluate IT infrastructure, applications, access controls, change management, and governance processes using industry standards and best practices to identify gaps and improvement opportunities."
+        why="An important element in modern business operations is technology. A
+              lack of effective IT control measures can put business organizations at
+              risk of data breaches and operational malfunctions. Independent IT
+              audits can be useful tools for proactively addressing vulnerabilities
+              and mitigating the potential for risk."
+        approach="We examine the state of IT infrastructure, applications, access
+                  controls, as well as change management and governance practices in
+                  accordance with the standards set for the respective industries."
         benefits={[
           "Clear identification of IT risks and control gaps",
           "Improved regulatory compliance and IT governance",
